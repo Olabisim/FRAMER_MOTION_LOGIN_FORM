@@ -1,4 +1,4 @@
-
+import './App.css'
 
 export const MiddleUi = () => {
         return (
@@ -18,7 +18,7 @@ export const MiddleUi = () => {
                                         </div>
                                         
                                         <div className="pointer-events-auto mt-6 flex flex-col">
-                                                <button type="button" className="appearance-none scale-100 transition-transform active:scale-[0.98] flex w-full items-center justify-center rounded-xl bg-gray-800 px-10 py-4 text-gray-100 transition-colors duration-150 hover:bg-gray-700 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-gray-200" data-testid="login">
+                                                <button type="button" className="bg-white appearance-none scale-100 transition-transform active:scale-[0.98] flex w-full items-center justify-center rounded-xl bg-gray-800 px-10 py-4 text-gray-100 transition-colors duration-150 hover:bg-gray-700 dark:bg-gray-100 dark:text-gray-800 dark:hover:bg-gray-200" data-testid="login">
                                                         <img className="inline w-4 opacity-80" src="/google-icon-light.svg" alt="google icon" />
                                                         <span className="ml-2.5 text-base font-semibold" style={{lineBreak: 'anywhere'}}>Continue with Google</span>
                                                 </button>
