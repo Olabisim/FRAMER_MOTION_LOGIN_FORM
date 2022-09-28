@@ -10,6 +10,9 @@
 .Card > div {
   border-radius: 20px;
 }
+.bg-none {
+  background: none !important;
+}
 .bg-white {
-  background-color: rgb(243,244,246) !important;
+  background: white !important;
 }
