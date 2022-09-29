@@ -3,51 +3,145 @@ import { MiddleUi } from './MiddleUi';
 import { Card } from './Card';
 import { motion } from 'framer-motion';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
 
 
+
         const dataCards = [
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
-                {heading: 'Buy a new car', time:'10:30'},
+                {heading: 'Buy a new car', time:'10:30', card: 10},
+                {heading: 'Buy a new car', time:'10:30', card: 20},
+                {heading: 'Buy a new car', time:'10:30', card: 30},
+                {heading: 'Buy a new car', time:'10:30', card: 40},
+                {heading: 'Buy a new car', time:'10:30', card: 50},
+                {heading: 'Buy a new car', time:'10:30', card: 60},
+                {heading: 'Buy a new car', time:'10:30', card: 70},
+                {heading: 'Buy a new car', time:'10:30', card: 80},
+                {heading: 'Buy a new car', time:'10:30', card: 90},
+                {heading: 'Buy a new car', time:'10:30', card: 100},
+                {heading: 'Buy a new car', time:'10:30', card: 101},
+                {heading: 'Buy a new car', time:'10:30', card: 102},
         ]
 
         const topMultipleCards = dataCards.map(each => (
                 
-                <motion.div className="Card active:cursor-grabbing" drag whileDrag={{scale: 0.95}} dragConstraints={{ left: 0, right: 1500 }}>
-                
-                <div className="absolute flex w-fit origin-center -translate-x-1/2 -translate-y-1/2 scale-100 cursor-grab overflow-hidden rounded-2xl bg-none shadow transition-transform active:scale-98 active:cursor-grabbing dark:bg-gray-800 dark:shadow-feintLg">
-                        <div className="flex bg-gradient-to-t py-4 pr-8 pl-3 dark:from-gray-700 dark:to-gray-600 opacity-100 rounded">
-                                
-                                <label className="relative z-20 flex cursor-pointer transition-all mt-0.5 self-start" role="presentation">
-                                        <div className="relative flex items-center justify-center transition-colors shadow-checkbox-gray-800 dark:shadow-checkbox-gray-200 rounded h-[16px] w-[16px]">
-                                                <span className="absolute h-full w-full cursor-pointer h-[22px] w-[22px]"></span>
-                                                <div className='absolute border-0 h-[1px] w-[1px] overflow-hidden p-0 whitespace-nowrap break-normal' style={{clip: 'rect(0px, 0px, 0px, 0px)', clipPath: 'inset(50%)'}}>
-                                                        <input className="appearance-none" type="checkbox" aria-checked="false" autocomplete="new-password" data-lpignore="true" allow-1password="no" />
-                                                </div>
-                                                <div className="flex transition-transform delay-75 scale-0 text-gray-100 dark:text-gray-500">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 13l4 4 8-9"></path></svg>
+                <div className={`card-${each.card}`}>
+                        <motion.div className={`Card active:cursor-grabbing`} drag whileDrag={{scale: 0.95}} dragConstraints={{ left: 0, right: 1500 }} initial={{translateX: each.card * 12, translateY: -30, rotate: each.card, originX: 0, originY: 0, originZ: 0 }}>
+                        
+                                <div className={`absolute flex w-fit origin-center cursor-grab overflow-hidden rounded-2xl bg-white shadow transition-transform active:scale-98 active:cursor-grabbing dark:bg-gray-800 dark:shadow-feintLg`}>
+                                        <div className="flex bg-gradient-to-t py-4 pr-8 pl-3 dark:from-gray-700 dark:to-gray-600 opacity-100 rounded">
+                                                
+                                                <label className="relative z-20 flex cursor-pointer transition-all mt-0.5 self-start" role="presentation">
+                                                        <div className="relative flex items-center justify-center transition-colors shadow-checkbox-gray-800 dark:shadow-checkbox-gray-200 rounded h-[16px] w-[16px]">
+                                                                <span className="absolute h-full w-full cursor-pointer h-[22px] w-[22px]"></span>
+                                                                <div className='absolute border-0 h-[1px] w-[1px] overflow-hidden p-0 whitespace-nowrap break-normal' style={{clip: 'rect(0px, 0px, 0px, 0px)', clipPath: 'inset(50%)'}}>
+                                                                        <input className="appearance-none" type="checkbox" aria-checked="false" autocomplete="new-password" data-lpignore="true" allow-1password="no" />
+                                                                </div>
+                                                                <div className="flex transition-transform delay-75 scale-0 text-gray-100 dark:text-gray-500">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 13l4 4 8-9"></path></svg>
+                                                                </div>
+                                                        </div>
+                                                </label>
+                                                
+                                                <div className="ml-2 -mt-0.5 flex flex-col">
+                                                        <p spellcheck="false" contenteditable="true" className="min-w-[80px] cursor-text whitespace-nowrap border-none text-base font-medium outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10 text-white">{each.heading}</p>
+                                                        <p spellcheck="false" contenteditable="true" className="text-secondary min-w-[80px] cursor-text border-none text-[13px] font-semibold outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10">{each.time}</p>
                                                 </div>
                                         </div>
-                                </label>
-                                
-                                
-                                <div className="ml-2 -mt-0.5 flex flex-col">
-                                        <p spellcheck="false" contenteditable="true" className="min-w-[80px] cursor-text whitespace-nowrap border-none text-base font-medium outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10 text-white">{each.time}</p>
-                                        <p spellcheck="false" contenteditable="true" className="text-secondary min-w-[80px] cursor-text border-none text-[13px] font-semibold outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10">{each.time}</p>
                                 </div>
-                        </div>
-                        </div>
-                </motion.div>
+                        </motion.div>
+                </div>
+        ))
+        
+        const bottomMultipleCards = dataCards.map(each => (
+                
+                <div className={`card-${each.card}`}>
+                        <motion.div className={`Card active:cursor-grabbing`} drag whileDrag={{scale: 0.95}} dragConstraints={{ left: 0, right: 1500 }} initial={{translateX: each.card * 12, translateY: 680, rotate: each.card, originX: 0, originY: 0, originZ: 0 }}>
+                        
+                                <div className={`absolute flex w-fit origin-center cursor-grab overflow-hidden rounded-2xl bg-white shadow transition-transform active:scale-98 active:cursor-grabbing dark:bg-gray-800 dark:shadow-feintLg`}>
+                                        <div className="flex bg-gradient-to-t py-4 pr-8 pl-3 dark:from-gray-700 dark:to-gray-600 opacity-100 rounded">
+                                                
+                                                <label className="relative z-20 flex cursor-pointer transition-all mt-0.5 self-start" role="presentation">
+                                                        <div className="relative flex items-center justify-center transition-colors shadow-checkbox-gray-800 dark:shadow-checkbox-gray-200 rounded h-[16px] w-[16px]">
+                                                                <span className="absolute h-full w-full cursor-pointer h-[22px] w-[22px]"></span>
+                                                                <div className='absolute border-0 h-[1px] w-[1px] overflow-hidden p-0 whitespace-nowrap break-normal' style={{clip: 'rect(0px, 0px, 0px, 0px)', clipPath: 'inset(50%)'}}>
+                                                                        <input className="appearance-none" type="checkbox" aria-checked="false" autocomplete="new-password" data-lpignore="true" allow-1password="no" />
+                                                                </div>
+                                                                <div className="flex transition-transform delay-75 scale-0 text-gray-100 dark:text-gray-500">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 13l4 4 8-9"></path></svg>
+                                                                </div>
+                                                        </div>
+                                                </label>
+                                                
+                                                <div className="ml-2 -mt-0.5 flex flex-col">
+                                                        <p spellcheck="false" contenteditable="true" className="min-w-[80px] cursor-text whitespace-nowrap border-none text-base font-medium outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10 text-white">{each.heading}</p>
+                                                        <p spellcheck="false" contenteditable="true" className="text-secondary min-w-[80px] cursor-text border-none text-[13px] font-semibold outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10">{each.time}</p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </motion.div>
+                </div>
+        ))
+
+        const leftMultipleCards = dataCards.map(each => (
+                
+                <div className={`card-${each.card}`}>
+                        <motion.div className={`Card active:cursor-grabbing`} drag whileDrag={{scale: 0.95}} dragConstraints={{ left: 0, right: 1500 }} initial={{translateX: 0, translateY: each.card * 8, rotate: each.card, originX: 0, originY: 0, originZ: 0 }}>
+                        
+                                <div className={`absolute flex w-fit origin-center cursor-grab overflow-hidden rounded-2xl bg-white shadow transition-transform active:scale-98 active:cursor-grabbing dark:bg-gray-800 dark:shadow-feintLg`}>
+                                        <div className="flex bg-gradient-to-t py-4 pr-8 pl-3 dark:from-gray-700 dark:to-gray-600 opacity-100 rounded">
+                                                
+                                                <label className="relative z-20 flex cursor-pointer transition-all mt-0.5 self-start" role="presentation">
+                                                        <div className="relative flex items-center justify-center transition-colors shadow-checkbox-gray-800 dark:shadow-checkbox-gray-200 rounded h-[16px] w-[16px]">
+                                                                <span className="absolute h-full w-full cursor-pointer h-[22px] w-[22px]"></span>
+                                                                <div className='absolute border-0 h-[1px] w-[1px] overflow-hidden p-0 whitespace-nowrap break-normal' style={{clip: 'rect(0px, 0px, 0px, 0px)', clipPath: 'inset(50%)'}}>
+                                                                        <input className="appearance-none" type="checkbox" aria-checked="false" autocomplete="new-password" data-lpignore="true" allow-1password="no" />
+                                                                </div>
+                                                                <div className="flex transition-transform delay-75 scale-0 text-gray-100 dark:text-gray-500">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 13l4 4 8-9"></path></svg>
+                                                                </div>
+                                                        </div>
+                                                </label>
+                                                
+                                                <div className="ml-2 -mt-0.5 flex flex-col">
+                                                        <p spellcheck="false" contenteditable="true" className="min-w-[80px] cursor-text whitespace-nowrap border-none text-base font-medium outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10 text-white">{each.heading}</p>
+                                                        <p spellcheck="false" contenteditable="true" className="text-secondary min-w-[80px] cursor-text border-none text-[13px] font-semibold outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10">{each.time}</p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </motion.div>
+                </div>
+        ))
+
+        const rightMultipleCards = dataCards.map(each => (
+                
+                <div className={`card-${each.card}`}>
+                        <motion.div className={`Card active:cursor-grabbing`} drag whileDrag={{scale: 0.95}} dragConstraints={{ left: 0, right: 1500 }} initial={{translateX: 1500, translateY: each.card * 8, rotate: each.card, originX: 0, originY: 0, originZ: 0 }}>
+                        
+                                <div className={`absolute flex w-fit origin-center cursor-grab overflow-hidden rounded-2xl bg-white shadow transition-transform active:scale-98 active:cursor-grabbing dark:bg-gray-800 dark:shadow-feintLg`}>
+                                        <div className="flex bg-gradient-to-t py-4 pr-8 pl-3 dark:from-gray-700 dark:to-gray-600 opacity-100 rounded">
+                                                
+                                                <label className="relative z-20 flex cursor-pointer transition-all mt-0.5 self-start" role="presentation">
+                                                        <div className="relative flex items-center justify-center transition-colors shadow-checkbox-gray-800 dark:shadow-checkbox-gray-200 rounded h-[16px] w-[16px]">
+                                                                <span className="absolute h-full w-full cursor-pointer h-[22px] w-[22px]"></span>
+                                                                <div className='absolute border-0 h-[1px] w-[1px] overflow-hidden p-0 whitespace-nowrap break-normal' style={{clip: 'rect(0px, 0px, 0px, 0px)', clipPath: 'inset(50%)'}}>
+                                                                        <input className="appearance-none" type="checkbox" aria-checked="false" autocomplete="new-password" data-lpignore="true" allow-1password="no" />
+                                                                </div>
+                                                                <div className="flex transition-transform delay-75 scale-0 text-gray-100 dark:text-gray-500">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24"><path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 13l4 4 8-9"></path></svg>
+                                                                </div>
+                                                        </div>
+                                                </label>
+                                                
+                                                <div className="ml-2 -mt-0.5 flex flex-col">
+                                                        <p spellcheck="false" contenteditable="true" className="min-w-[80px] cursor-text whitespace-nowrap border-none text-base font-medium outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10 text-white">{each.heading}</p>
+                                                        <p spellcheck="false" contenteditable="true" className="text-secondary min-w-[80px] cursor-text border-none text-[13px] font-semibold outline-none selection:bg-pink-400/10 hover:opacity-80 dark:selection:bg-pink-400/10">{each.time}</p>
+                                                </div>
+                                        </div>
+                                </div>
+                        </motion.div>
+                </div>
         ))
         
 
@@ -55,7 +149,19 @@ function App() {
         return (
                 <div className="App h-[100vh] overflow-hidden">
 
-                       {topMultipleCards}
+                        <div className='card_container'>
+                                {topMultipleCards}
+                        </div>
+                        <div className='card_container'>
+                                {bottomMultipleCards}
+                        </div>
+                        <div className='card_container'>
+                                {leftMultipleCards}
+                        </div>
+                        <div className='card_container'>
+                                {rightMultipleCards}
+                        </div>
+
                 <div className='flex h-[100vh]'>
                 <div className="pointer-events-none relative z-20 m-auto flex w-full max-w-[520px] flex-col">
                         <div className="flex w-full flex-col p-12">

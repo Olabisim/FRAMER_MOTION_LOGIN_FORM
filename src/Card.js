@@ -6,7 +6,7 @@ export const Card = ({headiing, time}) => {
         return (
                 <motion.div className="Card active:cursor-grabbing" drag whileDrag={{scale: 0.95}} dragConstraints={{ left: 0, right: 1500 }}>
                 
-                <div className="absolute flex w-fit origin-center -translate-x-1/2 -translate-y-1/2 scale-100 cursor-grab overflow-hidden rounded-2xl bg-white shadow transition-transform active:scale-98 active:cursor-grabbing dark:bg-gray-800 dark:shadow-feintLg">
+                <div className="absolute flex w-fit origin-center -translate-x-1/2 -translate-y-1/2 cursor-grab overflow-hidden rounded-2xl bg-white shadow transition-transform active:scale-98 active:cursor-grabbing dark:bg-gray-800 dark:shadow-feintLg">
                         <div className="flex bg-gradient-to-t py-4 pr-8 pl-3 dark:from-gray-700 dark:to-gray-600 opacity-100 rounded">
                                 
                                 <label className="relative z-20 flex cursor-pointer transition-all mt-0.5 self-start" role="presentation">

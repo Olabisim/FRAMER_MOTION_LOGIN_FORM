@@ -16,3 +16,16 @@
 .bg-white {
   background: white !important;
 }
+.card_container .Card:nth-of-type(1) div{
+  /* transform: rotate(45deg); */
+}
+
+.card-1 {
+  /* transform: rotate(45deg); */
+}
+.card-1 {
+  /* transform: rotate(45deg); */
+}
+.card-12 {
+  /* transform: rotate(45deg); */
+}
